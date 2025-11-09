@@ -6,6 +6,8 @@ public class Drink {
     private String size;
     private double price;
 
+//prompt user for flavor and size
+// Determine the price based on the size
 
 
     public Drink(String name, String size, double price) {
@@ -41,7 +43,28 @@ public class Drink {
     }
 
 
+//method to set price by size of drink
 
+    public double setPriceBySize(){
+        double price = 0.0;
+
+        switch(size){
+            case "small":
+                this.price = 2.00;
+                break;
+
+            case "medium":
+                this.price = 2.50;
+                break;
+
+            case "large":
+                this.price = 3.00;
+                break;
+
+
+        }
+        return price;
+    }
 
 
 

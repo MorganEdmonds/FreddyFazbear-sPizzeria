@@ -2,40 +2,57 @@ package com.pluralsight;
 
 public class Drink {
 
-    Double large = 3.00;
-    Double medium = 2.50;
-    Double small = 1.50;
+    private String name;
+    private String size;
+    private double price;
 
-    public Drink(Double large, Double medium, Double small) {
-        this.large = large;
-        this.medium = medium;
-        this.small = small;
+
+
+    public Drink(String name, String size, double price) {
+        this.name = name;
+        this.size = size;
+        this.price = price;
     }
 
 
-    public Double getLarge() {
-        return large;
+
+    public String getName() {
+        return name;
     }
 
-    public void setLarge(Double large) {
-        this.large = large;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Double getMedium() {
-        return medium;
+    public String getSize() {
+        return size;
     }
 
-    public void setMedium(Double medium) {
-        this.medium = medium;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public Double getSmall() {
-        return small;
+    public double getPrice() {
+        return price;
     }
 
-    public void setSmall(Double small) {
-        this.small = small;
+    public void setPrice(double price) {
+        this.price = price;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

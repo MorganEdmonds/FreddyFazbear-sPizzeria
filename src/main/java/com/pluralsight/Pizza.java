@@ -8,8 +8,8 @@ public class Pizza extends Product {
         private ArrayList<Toppings> toppings;
         private boolean isStuffed;
 
-    public Pizza(String description, double price, String size, String crust, boolean isStuffed) {
-        super(description, price);
+    public Pizza(String description, String size, String crust, boolean isStuffed) {
+        super(description);
         this.size = size;
         this.crust = crust;
         this.toppings = new ArrayList<>();
@@ -52,7 +52,7 @@ public class Pizza extends Product {
         isStuffed = stuffed;
     }
 
-
+    
 
     @Override
     public double getPrice() {

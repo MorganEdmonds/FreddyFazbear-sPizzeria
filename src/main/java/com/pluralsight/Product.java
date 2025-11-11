@@ -2,11 +2,10 @@ package com.pluralsight;
 
 public abstract class Product {
     protected String description;
-    protected double price;
 
-    public Product(String description, double price) {
+    public Product(String description) {
         this.description = description ;
-        this.price = price;
+
     }
 
     public String getDescription() {
@@ -19,6 +18,6 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return String.format("%s | $%.2f", description, price);
+        return String.format("%s | $%.2f", description);
     }
 }

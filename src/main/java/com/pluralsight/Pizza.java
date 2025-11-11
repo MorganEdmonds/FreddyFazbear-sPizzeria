@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Pizza extends Product {
         private String size;
         private String crust;
-        private ArrayList<Toppings> toppings;
+        private ArrayList<Topping> toppings;
         private boolean isStuffed;
 
     public Pizza(String description, String size, String crust, boolean isStuffed) {
@@ -16,7 +16,7 @@ public class Pizza extends Product {
         this.isStuffed = isStuffed;
     }
 
-    public void addTopping(Toppings t){
+    public void addTopping(Topping t){
         toppings.add(t);
     }
 
@@ -37,11 +37,11 @@ public class Pizza extends Product {
         this.crust = crust;
     }
 
-    public ArrayList<Toppings> getToppings() {
+    public ArrayList<Topping> getToppings() {
         return toppings;
     }
 
-    public void setToppings(ArrayList<Toppings> toppings) {
+    public void setToppings(ArrayList<Topping> toppings) {
 
         this.toppings = toppings;
     }
@@ -71,8 +71,16 @@ public class Pizza extends Product {
             case "large":
                 basePrice = 16.50;
         }
+        for(Topping t:toppings){
+        basePrice += t.getPrice(this.size);
+        }
 
         return basePrice;
+
+
+
+
+
     }
 
 

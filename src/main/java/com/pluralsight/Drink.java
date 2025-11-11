@@ -9,8 +9,8 @@ public class Drink extends Product{
 //prompt user for flavor and size
 // Determine the price based on the size
 
-    public Drink(String description, String name, double price, String size) {
-        super(description, price);
+    public Drink(String description, String name, String size) {
+        super(description);
         this.name = name;
         this.size = size;
 

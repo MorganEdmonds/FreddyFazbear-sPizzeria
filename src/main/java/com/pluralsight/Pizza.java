@@ -33,6 +33,7 @@ public class Pizza extends Product {
     }
 
     public void setCrust(String crust) {
+
         this.crust = crust;
     }
 
@@ -41,6 +42,7 @@ public class Pizza extends Product {
     }
 
     public void setToppings(ArrayList<Toppings> toppings) {
+
         this.toppings = toppings;
     }
 
@@ -57,6 +59,21 @@ public class Pizza extends Product {
 
     @Override
     public double getPrice() {
-        return 0;
+        double basePrice = 0;
+
+        switch(size.toLowerCase()){
+            case "small":
+                basePrice = 8.50;
+                break;
+            case "medium":
+                basePrice = 12.00;
+                break;
+            case "large":
+                basePrice = 16.50;
+        }
+
+        return basePrice;
     }
+
+
 }

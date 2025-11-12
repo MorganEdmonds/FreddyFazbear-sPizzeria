@@ -12,11 +12,9 @@ public class Order {
         this.localDateTime = localDateTime;
     }
 
+    public Order() {
 
-
-
-
-
+    }
 
 
     // User will be able to create a pizza with the option of different crusts as well as premium toppings

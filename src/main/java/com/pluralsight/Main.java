@@ -12,7 +12,8 @@ public class Main {
         boolean isStuffed = false;
 
         UserInterface userInterface = new UserInterface();
-        userInterface.welcomeScreen();
+        userInterface.display();
+
 
         //Pizza pizza = new Pizza(size, crust, isStuffed);
 

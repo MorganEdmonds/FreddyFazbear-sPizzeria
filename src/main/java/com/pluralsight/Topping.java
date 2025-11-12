@@ -41,62 +41,8 @@ public class Topping extends Product {
         //Use if and else statements to loop through topping options.
         //return price of toppings based on pizza size.
             if(isExtra){
-                
+
             }
-//        switch (name) {
-//            case "pepperoni","sausage","ham","bacon","meatball":
-//                if (size == "small"){
-//                    price = 1.00;
-//
-//                }
-//                else if (size == "medium") {
-//                    price = 2.00;
-//
-//                }
-//                else if (size == "Large"){
-//                    price = 3.00;
-//
-//            }
-//
-//                price = 1.00;
-//                break;
-//
-//            case "mozzarella","parmesan","ricotta","goat cheese","buffalo cheese":
-//                if (size == "small"){
-//                    price = .75;
-//                }
-//
-//                else if (size == "medium") {
-//                    price = 1.50;
-//
-//                }
-//
-//                else if (size == "large") {
-//                    price = 3.00;
-//
-//                }
-//
-//                price = 0.75;
-//                break;
-//
-//            case "onions", "mushrooms", "bell peppers","olives", "tomatoes", "spinach","basil","pineapple","anchovies":
-//                price = 0.00;
-//                break;
-//            case "marinara", "alfredo", "pesto", "bbq", "buffalo", "olive oil" :
-//                price = 0.00;
-//                break;
-//
-//
-//        }
-
-
-
-
-
-
-
-
-
 
     return price;
     }

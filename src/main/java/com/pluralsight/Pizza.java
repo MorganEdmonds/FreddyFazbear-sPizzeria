@@ -72,7 +72,7 @@ public class Pizza extends Product {
                 basePrice = 16.50;
         }
         for(Topping t:toppings){
-        basePrice += t.getPrice(this.size);
+        //basePrice += t.getPrice(this.size);
         }
 
         return basePrice;

@@ -62,17 +62,17 @@ public class Pizza extends Product {
         double basePrice = 0;
 
         switch(size.toLowerCase()){
-            case "small":
+            case "8":
                 basePrice = 8.50;
                 break;
-            case "medium":
+            case "12":
                 basePrice = 12.00;
                 break;
-            case "large":
+            case "16":
                 basePrice = 16.50;
         }
         for(Topping t:toppings){
-        //basePrice += t.getPrice(this.size);
+          basePrice += t.getPrice(this.size);
         }
 
         return basePrice;

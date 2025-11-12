@@ -9,7 +9,6 @@ public class UserInterface {
         System.out.println("1) New Order");
         System.out.println("0) Exit");
         System.out.println("=======================");
-
     }
 
     //todo add pizza method, add drink method, add garlic knots method
@@ -21,15 +20,14 @@ public class UserInterface {
 
         while (true){
             welcomeScreen();
-            int welcomeScreenChoice = InputCollector.promptForInt("");
-
+            int welcomeScreenChoice = InputCollector.promptForInt("Enter a Command");
 
             switch (welcomeScreenChoice) {
                 case 0:
                     return;
                 case 1:
                     //display order screen
-                    processNewOrderRequest(orderScreenWithInput());
+                    orderScreenWithInput();
 
             }
         }
@@ -37,24 +35,58 @@ public class UserInterface {
 
     public int orderScreenWithInput(){
 
-        int orderScreenChoice = InputCollector.promptForInt(
-                """
-               ====== Order Screen! ======)
-               (1) Add Pizza )
-               (2) Add Garlic knots);
-               (3) Add Drink );
-               (4) Check out);
-               (5) Cancel Order);
-               (=======================""");
-
-             return orderScreenChoice;
-
-
-
-    }
-    public void processNewOrderRequest(int orderScreenChoice) {
         Order order = new Order();
 
+        String orderScreen = """
+                 ====== Order Screen! ======
+               (1) Add Pizza
+               (2) Add Garlic Knots
+               (3) Add Drink
+               (4) Checkout
+               (5) Cancel Order
+               ======================
+                """;
+
+        System.out.println(orderScreen);
+
+        int orderScreenChoice = InputCollector.promptForInt("Choose a command");
+
+        switch (orderScreenChoice){
+
+            case 1:
+                addPizza();
+                break;
+            case 2:
+                addDrink();
+
+
+
+        }
+
+
+             return orderScreenChoice;//todo might not need
+
+    }
+
+    private void addPizza() {
+
+        System.out.println("=====Pizza Menu Options=====");
+
+        String pizzaScreen = """
+                 ====== Pizza Screen! ======
+               (1) Add Pizza
+               (2) Add Garlic Knots
+               (3) Add Drink
+               (4) Checkout
+               (5) Cancel Order
+               ======================
+                """;
+
+        System.out.println(pizzaScreen);
+
+        int pizzaScreenChoice = InputCollector.promptForInt("Choose a command");
+
+        switch (){}
     }
 
 }

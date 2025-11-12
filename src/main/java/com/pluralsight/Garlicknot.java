@@ -3,8 +3,8 @@ package com.pluralsight;
 public class Garlicknot extends Product {
 
 
-    public Garlicknot(String description) {
-        super(description);
+    public Garlicknot() {
+        super("Garlic Knots");
     }
 
 

@@ -11,6 +11,8 @@ public class Main {
         String crust = "thin";
         boolean isStuffed = false;
 
+        UserInterface userInterface = new UserInterface();
+        userInterface.welcomeScreen();
 
         //Pizza pizza = new Pizza(size, crust, isStuffed);
 

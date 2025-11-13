@@ -183,7 +183,8 @@ public class UserInterface {
         //7 ask user what select sauces they want
         //TODO make array list of sauce toppings
         //8 ask user if they would like stuffed crust
-        boolean stuffedCrust = InputCollector.
+        String answer = InputCollector.promptForString("would you like stuffed crust?");
+        boolean stuffedCrust = answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y");
         //9 making pizza based on user input
 
 

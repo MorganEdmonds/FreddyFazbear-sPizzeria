@@ -165,6 +165,9 @@ public class UserInterface {
 
     private void addPizza() {
         //1 Display Heading that says Pizza Builder
+        System.out.println("==============");
+        System.out.println("    PIZZA BUILDER    ");
+        System.out.println("==============");
 
         //2 Ask User what crust type they want
         System.out.println("Crust Options : thin ,regular , thick, cauliflower");
@@ -211,13 +214,20 @@ public class UserInterface {
         Topping topping = new Topping(sauceTopping,"sauce", false);
 
 
-
         //8 ask user if they would like stuffed crust
-        String answer = InputCollector.promptForString("would you like stuffed crust?");
-        boolean stuffedCrust = answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y");
+        String answer = InputCollector.promptForString("would you like stuffed crust?(Y/N)");
+        Pizza pizza = new Pizza("",pizzaSize,crustType,false);
+
+        if(answer.equalsIgnoreCase("Y")){
+          pizza.setStuffed(true);
+        }
+
+        pizza.setToppings(toppings);
 
 
         //9 making pizza based on user input
+
+
 
 
 

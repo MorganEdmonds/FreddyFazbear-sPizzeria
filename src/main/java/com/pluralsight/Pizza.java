@@ -13,7 +13,7 @@ public class Pizza extends Product {
         this.size = size;
         this.crust = crust;
         this.toppings = new ArrayList<>();
-        this.isStuffed = isStuffed;
+        this.isStuffed = false;
     }
 
     public void addTopping(Topping t){

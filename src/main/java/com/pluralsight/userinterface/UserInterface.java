@@ -1,4 +1,7 @@
-package com.pluralsight;
+package com.pluralsight.userinterface;
+
+import com.pluralsight.data.OrderManager;
+import com.pluralsight.model.*;
 
 import java.util.ArrayList;
 
@@ -36,8 +39,11 @@ public class UserInterface {
     }
 
     public int orderScreenWithInput(){
+        OrderManager orderManager = new OrderManager();
 
-        Order order = new Order();
+
+        orderManager.startNewOrder();
+        Order order = orderManager.getCurrentOrder();
 
         String orderScreen = """
                  ====== Order Screen! ======
@@ -68,7 +74,7 @@ public class UserInterface {
                 checkOutScreen(order);
                 break;
             case 5:
-                cancelOrder(order);
+                orderManager.cancelOrder();
             default:
                 System.out.println("invalid input!");
                 
@@ -103,20 +109,7 @@ public class UserInterface {
 
     private void checkOutScreen() {
 
-        System.out.println("===== Check Out Screen =====");
 
-        String checkOutScreen = """
-                 ====== Check Out ! ======
-               (1 Checkout
-               (2 Cancel Order
-               =================
-               """;
-
-        System.out.println(checkOutScreen);
-
-        int checkOutScreenChoice = InputCollector.promptForInt("Choose a command");
-
-        switch (checkOutScreenChoice){}
 
     }
 
@@ -132,9 +125,9 @@ public class UserInterface {
 
         boolean garlicKnot = answer.equalsIgnoreCase("Y");
 
+            Garlicknot garlicknot = new Garlicknot("6 pack","GarlicKnots");
 
-
-        order.addProduct(garlicKnot);
+        order.addProduct(garlicknot);
     }
 
     private void addDrinkScreen(Order order) {

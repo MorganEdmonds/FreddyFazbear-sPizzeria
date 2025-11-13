@@ -1,6 +1,6 @@
-package com.pluralsight;
+package com.pluralsight.model;
 
-public class Drink extends Product{
+public class Drink extends Product {
 
     private String name;
     private String size;

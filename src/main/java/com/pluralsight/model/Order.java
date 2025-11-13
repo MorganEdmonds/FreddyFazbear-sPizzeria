@@ -1,6 +1,5 @@
-package com.pluralsight;
+package com.pluralsight.model;
 
-import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

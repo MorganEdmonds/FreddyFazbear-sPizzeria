@@ -195,13 +195,35 @@ public class UserInterface {
             default -> "Error";
         };
 
+
         //3 ask user what pizza size they want
         List<Integer> pizzaSizeList = Arrays.asList(1,2,3);
-        System.out.println("Pizza size options : 8 in , 12 in , 16 in ");
-        String pizzaSize = InputCollector.promptForString("What size pizza would you like?");
+        System.out.println("Pizza size Options:\n1) 8\n2) 12\n3) 16");
 
+        int customerPizzaSizeChoice;
+
+        while (true) {
+            customerPizzaSizeChoice = InputCollector.promptForInt("What size pizza would you like?");
+
+            if (pizzaSizeList.contains(customerPizzaSizeChoice)) {
+                break;
+            } else {
+                System.out.println("Invalid pizza size type. Please choose from the crust options listed.");
+            }
+        }
+        String pizzaSizeChosen = switch (customerPizzaSizeChoice) {
+            case 1 -> "8";
+            case 2 -> "12";
+            case 3 -> "16";
+            default -> "Error";
+        };
 
         //4 ask user what meat toppings they want
+
+        List<Integer> meatList = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+        System.out.println("Crust Options:\n1) Pepperoni\n2) Sau\n3) Thick\n4) Cauliflower\n5) Chicken\n6) Meatball");
+
+        int customerCrustChoice;
         //TODO create an array list of meat toppings and a while loop to allow the user to go through topping options.
         ArrayList<Topping> toppings = new ArrayList<>();
         //display meat options

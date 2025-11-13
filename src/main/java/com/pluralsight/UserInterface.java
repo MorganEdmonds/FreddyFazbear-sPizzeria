@@ -170,21 +170,53 @@ public class UserInterface {
         System.out.println("Crust Options : thin ,regular , thick, cauliflower");
         String crustType = InputCollector.promptForString("What crust would you like?");
 
+
         //3 ask user what pizza size they want
         System.out.println("Pizza size options : 8 in , 12 in , 16 in ");
         String pizzaSize = InputCollector.promptForString("What size pizza would you like?");
 
+
         //4 ask user what meat toppings they want
         //TODO create an array list of meat toppings and a while loop to allow the user to go through topping options.
-        ArrayList<Topping> toppings;
+        ArrayList<Topping> toppings = new ArrayList<>();
+        //display meat options
+        System.out.println("pepperoni, sausage, ham, bacon, chicken, meatball");
+        //ask which meat topping they want with input collector
+        String meatTopping = InputCollector.promptForString("What type of meat topping would you like?");
+
+        //assign the string to a new topping (make a new topping)
+        Topping toppingMeat = new Topping(meatTopping,"meat", false);
+
+        //add to our arraylist named toppings
+        toppings.add(toppingMeat);
+
         //5 ask user what cheese topping they want
-        //TODO make array lis of cheese toppings
+        System.out.println("Mozzarella, Parmesan, Ricotta, Goat, Cheese, Buffalo");
+        //TODO make array list of cheese toppings
+        String cheeseTopping = InputCollector.promptForString("What type of cheese topping would you like?");
+        Topping toppingCheese = new Topping(cheeseTopping,"cheese",false);
+
+        toppings.add(toppingCheese);
+
         //6 ask user what other toppings they want
+        System.out.println(" onions, mushrooms,bell peppers,olives,tomatoes,spinach, basil, pineapple,anchovies ");
+        String regularTopping = InputCollector.promptForString("What veggie topping would you like?");
+        Topping toppingRegular = new Topping(regularTopping,"veggie",false);
+
+        toppings.add(toppingRegular);
         //7 ask user what select sauces they want
+        System.out.println(" marinara, alfredo, pesto, bbq, buffalo, olive oil ");
+        String sauceTopping = InputCollector.promptForString("What type of sauce would you like?");
         //TODO make array list of sauce toppings
+        Topping topping = new Topping(sauceTopping,"sauce", false);
+
+
+
         //8 ask user if they would like stuffed crust
         String answer = InputCollector.promptForString("would you like stuffed crust?");
         boolean stuffedCrust = answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y");
+
+
         //9 making pizza based on user input
 
 

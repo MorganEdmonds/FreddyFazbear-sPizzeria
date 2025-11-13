@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.ArrayList;
+
 public class UserInterface {
 
 
@@ -162,24 +164,31 @@ public class UserInterface {
     }
 
     private void addPizza() {
+        //1 Display Heading that says Pizza Builder
 
-        System.out.println("=====Pizza Menu Options=====");
+        //2 Ask User what crust type they want
+        System.out.println("Crust Options : thin ,regular , thick, cauliflower");
+        String crustType = InputCollector.promptForString("What crust would you like?");
 
-        String pizzaScreen = """
-                 ====== Pizza Screen! ======
-               (1) Add Pizza
-               (2) Checkout
-               (3) Cancel Order
-                 ==================
-                 """;
+        //3 ask user what pizza size they want
+        System.out.println("Pizza size options : 8 in , 12 in , 16 in ");
+        String pizzaSize = InputCollector.promptForString("What size pizza would you like?");
+
+        //4 ask user what meat toppings they want
+        //TODO create an array list of meat toppings and a while loop to allow the user to go through topping options.
+        ArrayList<Topping> toppings;
+        //5 ask user what cheese topping they want
+        //TODO make array lis of cheese toppings
+        //6 ask user what other toppings they want
+        //7 ask user what select sauces they want
+        //TODO make array list of sauce toppings
+        //8 ask user if they would like stuffed crust
+        boolean stuffedCrust = InputCollector.
+        //9 making pizza based on user input
 
 
 
-        System.out.println(pizzaScreen);
 
-        int pizzaScreenChoice = InputCollector.promptForInt("Choose a command");
-
-        switch (pizzaScreenChoice){}
     }
 
 }

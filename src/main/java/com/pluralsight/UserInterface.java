@@ -123,9 +123,18 @@ public class UserInterface {
 
 
     //ORDER SCREEN OPTIONS.
-    private void addGarlicKnotsScreen() {
+    private void addGarlicKnotsScreen(Order order) {
+        System.out.println("==============");
+        System.out.println("    GARLIC KNOTS   ");
+        System.out.println("==============");
+
+        String answer = InputCollector.promptForString("would you like Garlic Knots?(Y/N)");
+
+        boolean garlicKnot = answer.equalsIgnoreCase("Y");
 
 
+
+        order.addProduct(garlicKnot);
     }
 
     private void addDrinkScreen(Order order) {

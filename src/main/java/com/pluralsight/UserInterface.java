@@ -57,7 +57,20 @@ public class UserInterface {
                 addPizza();
                 break;
             case 2:
-                addDrink();
+                addGarlicKnotsScreen();
+                break;
+            case 3:
+                addDrinkScreen();
+                break;
+            case 4:
+                checkOutScreen();
+                break;
+            case 5:
+                cancelOrder();
+            default:
+                System.out.println("invalid input!");
+                
+
 
 
 
@@ -68,6 +81,86 @@ public class UserInterface {
 
     }
 
+    private void cancelOrder() {
+
+        System.out.println("===== Cancel Order Screen =====");
+
+        String cancelOrderScreen = """
+                 ====== Check Out ! ======
+               (3 Cancel Order
+               ===============
+               """;
+
+
+        System.out.println(cancelOrderScreen);
+
+        int cancelOrderScreenChoice = InputCollector.promptForInt("Choose a command");
+
+        switch (cancelOrderScreenChoice){}
+    }
+
+    private void checkOutScreen() {
+
+        System.out.println("===== Check Out Screen =====");
+
+        String checkOutScreen = """
+                 ====== Check Out ! ======
+               (1 Checkout
+               (2 Cancel Order
+               =================
+               """;
+
+        System.out.println(checkOutScreen);
+
+        int checkOutScreenChoice = InputCollector.promptForInt("Choose a command");
+
+        switch (checkOutScreenChoice){}
+
+    }
+
+
+
+    //ORDER SCREEN OPTIONS.
+    private void addGarlicKnotsScreen() {
+
+        System.out.println("===== Garlic Knots Screen =====");
+
+        String garlicKnotsScreen = """
+                 ====== Garlic Knots! ======
+               (1 Add Garlic Knots
+               (2 Checkout
+               (3 Cancel Order
+                ======================
+               """;
+
+        System.out.println(garlicKnotsScreen);
+
+        int garlicKnotsScreenChoice = InputCollector.promptForInt("Choose a command");
+
+        switch (garlicKnotsScreenChoice){}
+    }
+
+    private void addDrinkScreen() {
+
+        System.out.println("===== Drinks Screen =====");
+
+        String drinksScreen = """
+                 ====== Drinks! ======
+               (1 Add Drinks
+               (2 Checkout
+               (3 Cancel Order
+                ======================
+               """;
+
+        System.out.println(drinksScreen);
+
+        int drinksScreenChoice = InputCollector.promptForInt("Choose a command");
+
+        switch (drinksScreenChoice){}
+
+
+    }
+
     private void addPizza() {
 
         System.out.println("=====Pizza Menu Options=====");
@@ -75,18 +168,18 @@ public class UserInterface {
         String pizzaScreen = """
                  ====== Pizza Screen! ======
                (1) Add Pizza
-               (2) Add Garlic Knots
-               (3) Add Drink
-               (4) Checkout
-               (5) Cancel Order
-               ======================
-                """;
+               (2) Checkout
+               (3) Cancel Order
+                 ==================
+                 """;
+
+
 
         System.out.println(pizzaScreen);
 
         int pizzaScreenChoice = InputCollector.promptForInt("Choose a command");
 
-        switch (){}
+        switch (pizzaScreenChoice){}
     }
 
 }

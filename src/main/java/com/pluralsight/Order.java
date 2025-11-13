@@ -76,30 +76,29 @@ public class Order {
       return products.stream().mapToDouble(products-> products.getPrice()).sum();
     }
 
-    public boolean isValidOrder(){
-        /*A customer can place an order with 0 or more pizzas on the order, If a customer
-        places an order with 0 pizzas, they must purchase garlic knots or a drink.*/
-        boolean hasNoPizza = products.stream().noneMatch(product -> product instanceof Pizza);
-
-        if(hasNoPizza){
-
-            for(Product p : products ){
-            if (p instanceof Garlicknot || p instanceof Drink){
-
-                return true;
-            } else{
-                return false;
-            }
-
-            }
-
-
-        }
-
-
-
-        return false;
-    }
+//    public boolean isValidOrder(){
+//        /*A customer can place an order with 0 or more pizzas on the order, If a customer
+//        places an order with 0 pizzas, they must purchase garlic knots or a drink.*/
+//        boolean hasPizza = products.stream().anyMatch(product -> product instanceof Pizza);
+//
+//        if(!hasPizza){
+//
+//                for(Product p : products ){
+//                    if (p instanceof Garlicknot || p instanceof Drink){
+//
+//                        return true;
+//                    }
+//
+//                }
+//
+//
+//        }else {
+//            return false;
+//        }
+//
+//        return hasPizza;
+//
+//    }
 
 
     // User will be able to create a pizza with the option of different crusts as well as premium toppings

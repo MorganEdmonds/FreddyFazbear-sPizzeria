@@ -56,19 +56,19 @@ public class UserInterface {
         switch (orderScreenChoice){
 
             case 1:
-                addPizza();
+                addPizza(order);
                 break;
             case 2:
-                addGarlicKnotsScreen();
+                addGarlicKnotsScreen(order);
                 break;
             case 3:
-                addDrinkScreen();
+                addDrinkScreen(order);
                 break;
             case 4:
-                checkOutScreen();
+                checkOutScreen(order);
                 break;
             case 5:
-                cancelOrder();
+                cancelOrder(order);
             default:
                 System.out.println("invalid input!");
                 
@@ -125,49 +125,36 @@ public class UserInterface {
     //ORDER SCREEN OPTIONS.
     private void addGarlicKnotsScreen() {
 
-        System.out.println("===== Garlic Knots Screen =====");
 
-        String garlicKnotsScreen = """
-                 ====== Garlic Knots! ======
-               (1 Add Garlic Knots
-               (2 Checkout
-               (3 Cancel Order
-                ======================
-               """;
-
-        System.out.println(garlicKnotsScreen);
-
-        int garlicKnotsScreenChoice = InputCollector.promptForInt("Choose a command");
-
-        switch (garlicKnotsScreenChoice){}
     }
 
-    private void addDrinkScreen() {
+    private void addDrinkScreen(Order order) {
 
-        System.out.println("===== Drinks Screen =====");
+        System.out.println("==============");
+        System.out.println("    DRINK OPTION    ");
+        System.out.println("==============");
 
-        String drinksScreen = """
-                 ====== Drinks! ======
-               (1 Add Drinks
-               (2 Checkout
-               (3 Cancel Order
-                ======================
-               """;
+        String drinkName = InputCollector.promptForString("What drink flavor would you like?");
+        System.out.println("Drink flavors: freddy’s fruity fizz, chica’s clucking cola, foxy’s pirate pineapple, bonnie’s blueberry blast" );
 
-        System.out.println(drinksScreen);
+        String drinkSize = InputCollector.promptForString("What drink size would you like");
+        System.out.println("Size options: small, medium, large");
 
-        int drinksScreenChoice = InputCollector.promptForInt("Choose a command");
+        Drink drink = new Drink("", drinkName, drinkSize);
 
-        switch (drinksScreenChoice){}
+        order.addProduct(drink);
+
+
 
 
     }
 
-    private void addPizza() {
+    private void addPizza(Order order) {
         //1 Display Heading that says Pizza Builder
         System.out.println("==============");
         System.out.println("    PIZZA BUILDER    ");
         System.out.println("==============");
+
 
         //2 Ask User what crust type they want
         System.out.println("Crust Options : thin ,regular , thick, cauliflower");
@@ -207,22 +194,31 @@ public class UserInterface {
         Topping toppingRegular = new Topping(regularTopping,"veggie",false);
 
         toppings.add(toppingRegular);
+
         //7 ask user what select sauces they want
         System.out.println(" marinara, alfredo, pesto, bbq, buffalo, olive oil ");
         String sauceTopping = InputCollector.promptForString("What type of sauce would you like?");
         //TODO make array list of sauce toppings
-        Topping topping = new Topping(sauceTopping,"sauce", false);
+        Topping toppingSauce = new Topping(sauceTopping,"sauce", false);
+        toppings.add(toppingSauce);
 
 
         //8 ask user if they would like stuffed crust
         String answer = InputCollector.promptForString("would you like stuffed crust?(Y/N)");
-        Pizza pizza = new Pizza("",pizzaSize,crustType,false);
 
-        if(answer.equalsIgnoreCase("Y")){
-          pizza.setStuffed(true);
-        }
+        boolean stuffedCrust = answer.equalsIgnoreCase("Y");
+
+        Pizza pizza = new Pizza("",pizzaSize,crustType,stuffedCrust);
 
         pizza.setToppings(toppings);
+
+        order.addProduct(pizza);
+
+
+
+
+
+
 
 
         //9 making pizza based on user input

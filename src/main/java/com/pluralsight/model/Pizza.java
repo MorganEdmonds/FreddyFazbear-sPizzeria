@@ -1,6 +1,7 @@
 package com.pluralsight.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pizza extends Product {
         private String size;
@@ -8,8 +9,8 @@ public class Pizza extends Product {
         private ArrayList<Topping> toppings;
         private boolean isStuffed;
 
-    public Pizza(String description, String size, String crust, boolean isStuffed) {
-        super(description);
+    public Pizza( String size, String crust, boolean isStuffed) {
+        super("Pizza");
         this.size = size;
         this.crust = crust;
         this.toppings = new ArrayList<>();
@@ -41,7 +42,7 @@ public class Pizza extends Product {
         return toppings;
     }
 
-    public void setToppings(ArrayList<Topping> toppings) {
+    public void setToppings(List<String> toppings) {
 
         this.toppings = toppings;
     }

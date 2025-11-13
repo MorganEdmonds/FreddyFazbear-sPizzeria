@@ -1,9 +1,13 @@
 package com.pluralsight.userinterface;
 
 import com.pluralsight.data.OrderManager;
+import com.pluralsight.data.ReceiptWriter;
 import com.pluralsight.model.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class UserInterface {
 
@@ -40,12 +44,14 @@ public class UserInterface {
 
     public int orderScreenWithInput(){
         OrderManager orderManager = new OrderManager();
-
-
         orderManager.startNewOrder();
         Order order = orderManager.getCurrentOrder();
 
-        String orderScreen = """
+       // Order order = new Order();
+
+
+        while(true){
+            String orderScreen = """
                  ====== Order Screen! ======
                (1) Add Pizza
                (2) Add Garlic Knots
@@ -55,63 +61,71 @@ public class UserInterface {
                ======================
                 """;
 
-        System.out.println(orderScreen);
 
-        int orderScreenChoice = InputCollector.promptForInt("Choose a command");
 
-        switch (orderScreenChoice){
+            System.out.println(orderScreen);
 
-            case 1:
-                addPizza(order);
-                break;
-            case 2:
-                addGarlicKnotsScreen(order);
-                break;
-            case 3:
-                addDrinkScreen(order);
-                break;
-            case 4:
+            int orderScreenChoice = InputCollector.promptForInt("Choose a command");
+
+            switch (orderScreenChoice){
+
+                case 1:
+                    addPizza(order);
+                    break;
+                case 2:
+                    addGarlicKnotsScreen(order);
+                    break;
+                case 3:
+                    addDrinkScreen(order);
+                    break;
+                case 4:
                 checkOutScreen(order);
-                break;
-            case 5:
-                orderManager.cancelOrder();
-            default:
-                System.out.println("invalid input!");
-                
+                    break;
+                case 5:
+                    //todo showing as invalid
+                    orderManager.cancelOrder();
+                    System.out.println("Order canceled!");
+                default:
+                    System.out.println("invalid input!");
 
-
-
-
+            }
         }
 
 
-             return orderScreenChoice;//todo might not need
 
     }
 
-    private void cancelOrder() {
-
-        System.out.println("===== Cancel Order Screen =====");
-
-        String cancelOrderScreen = """
-                 ====== Check Out ! ======
-               (3 Cancel Order
-               ===============
-               """;
-
-
-        System.out.println(cancelOrderScreen);
-
-        int cancelOrderScreenChoice = InputCollector.promptForInt("Choose a command");
-
-        switch (cancelOrderScreenChoice){}
+    private void checkOutScreen(Order order) {
+        System.out.println(order.getOrderDetails());
     }
 
-    private void checkOutScreen() {
 
+//todo fix isOrderValid method in Order class
 
-
-    }
+//    private void checkOutScreen(Order order) {
+//        ReceiptWriter receiptWriter = new ReceiptWriter();
+//        //check if order is valid
+//        if (order.isOrderValid()){
+//            System.out.println(order.getOrderDetails());
+//
+//        }else{
+//            System.out.println("invalid order, please try again");
+//        }
+//
+//        String confirmOrCancel = InputCollector.promptForString("Would you like to confirm or cancel your order? (y/n)");
+//
+//        if (confirmOrCancel.equalsIgnoreCase("Y")){
+//            receiptWriter.saveReceipt(order);
+//            System.out.println("order is confirmed, saving to receipt");
+//
+//        }else if (confirmOrCancel.equalsIgnoreCase("N")){
+//            System.out.println("Order cancelled returning to home");
+//        }else{
+//            System.out.println("Invalid entry, please try again");
+//        }
+//
+//
+//    }
 
 
 
@@ -128,7 +142,7 @@ public class UserInterface {
             Garlicknot garlicknot = new Garlicknot("6 pack","GarlicKnots");
 
         order.addProduct(garlicknot);
-    }
+    }//todo tell user if it added properly
 
     private void addDrinkScreen(Order order) {
 
@@ -149,7 +163,7 @@ public class UserInterface {
 
 
 
-    }
+    } //todo display options 1st then ask what they want
 
     private void addPizza(Order order) {
         //1 Display Heading that says Pizza Builder
@@ -159,11 +173,30 @@ public class UserInterface {
 
 
         //2 Ask User what crust type they want
-        System.out.println("Crust Options : thin ,regular , thick, cauliflower");
-        String crustType = InputCollector.promptForString("What crust would you like?");
+        List<Integer> crustList = Arrays.asList(1, 2, 3, 4);
+        System.out.println("Crust Options:\n1) Thin\n2) Regular\n3) Thick\n4) Cauliflower\n");
 
+        int customerCrustChoice;
+
+        while (true) {
+            customerCrustChoice = InputCollector.promptForInt("What crust would you like?");
+
+            if (crustList.contains(customerCrustChoice)) {
+                break;
+            } else {
+                System.out.println("Invalid bread type. Please choose from the crust options listed.");
+            }
+        }
+        String crustChosen = switch (customerCrustChoice) {
+            case 1 -> "Thin";
+            case 2 -> "Regular";
+            case 3 -> "Thick";
+            case 4 -> "Cauliflower";
+            default -> "Error";
+        };
 
         //3 ask user what pizza size they want
+        List<Integer> pizzaSizeList = Arrays.asList(1,2,3);
         System.out.println("Pizza size options : 8 in , 12 in , 16 in ");
         String pizzaSize = InputCollector.promptForString("What size pizza would you like?");
 
@@ -177,7 +210,7 @@ public class UserInterface {
         String meatTopping = InputCollector.promptForString("What type of meat topping would you like?");
 
         //assign the string to a new topping (make a new topping)
-        Topping toppingMeat = new Topping(meatTopping,"meat", false);
+        Topping toppingMeat = new Topping(meatTopping, "meat", false);
 
         //add to our arraylist named toppings
         toppings.add(toppingMeat);
@@ -186,14 +219,14 @@ public class UserInterface {
         System.out.println("Mozzarella, Parmesan, Ricotta, Goat, Cheese, Buffalo");
         //TODO make array list of cheese toppings
         String cheeseTopping = InputCollector.promptForString("What type of cheese topping would you like?");
-        Topping toppingCheese = new Topping(cheeseTopping,"cheese",false);
+        Topping toppingCheese = new Topping(cheeseTopping, "cheese", false);
 
         toppings.add(toppingCheese);
 
         //6 ask user what other toppings they want
         System.out.println(" onions, mushrooms,bell peppers,olives,tomatoes,spinach, basil, pineapple,anchovies ");
         String regularTopping = InputCollector.promptForString("What veggie topping would you like?");
-        Topping toppingRegular = new Topping(regularTopping,"veggie",false);
+        Topping toppingRegular = new Topping(regularTopping, "veggie", false);
 
         toppings.add(toppingRegular);
 
@@ -201,7 +234,7 @@ public class UserInterface {
         System.out.println(" marinara, alfredo, pesto, bbq, buffalo, olive oil ");
         String sauceTopping = InputCollector.promptForString("What type of sauce would you like?");
         //TODO make array list of sauce toppings
-        Topping toppingSauce = new Topping(sauceTopping,"sauce", false);
+        Topping toppingSauce = new Topping(sauceTopping, "sauce", false);
         toppings.add(toppingSauce);
 
 
@@ -210,26 +243,16 @@ public class UserInterface {
 
         boolean stuffedCrust = answer.equalsIgnoreCase("Y");
 
-        Pizza pizza = new Pizza("",pizzaSize,crustType,stuffedCrust);
+        Pizza pizza = new Pizza("", pizzaSize, crustChosen, stuffedCrust);
 
         pizza.setToppings(toppings);
 
         order.addProduct(pizza);
 
 
-
-
-
-
-
-
         //9 making pizza based on user input
 
 
-
-
-
-
-    }
+    } //todo handle invalid inputs
 
 }

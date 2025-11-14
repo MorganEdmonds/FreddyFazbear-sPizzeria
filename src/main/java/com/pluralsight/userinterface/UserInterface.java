@@ -42,16 +42,14 @@ public class UserInterface {
         }
     }
 
-    public int orderScreenWithInput() {
+    public void orderScreenWithInput() {
         OrderManager orderManager = new OrderManager();
         orderManager.startNewOrder();
         Order order = orderManager.getCurrentOrder();
 
         // Order order = new Order();
 
-
-        while (true) {
-            String orderScreen = """
+        String orderScreen = """
                       ====== Order Screen! ======
                     (1) Add Pizza
                     (2) Add Garlic Knots
@@ -61,6 +59,10 @@ public class UserInterface {
                     ======================
                     """;
 
+        boolean choice = true;
+        while (choice) {
+
+
 
             System.out.println(orderScreen);
 
@@ -68,34 +70,30 @@ public class UserInterface {
 
             switch (orderScreenChoice) {
 
-                case 1:
-                    addPizza(order);
-                    break;
-                case 2:
-                    addGarlicKnotsScreen(order);
-                    break;
-                case 3:
-                    addDrinkScreen(order);
-                    break;
-                case 4:
+                case 1 -> addPizza(order);
+                case 2 -> addGarlicKnotsScreen(order);
+                case 3 -> addDrinkScreen(order);
+                case 4 ->{
                     checkOutScreen(order);
-                    break;
-                case 5:
-                    //todo showing as invalid
+                    choice = false;
+                }
+
+                case 5 -> {
                     orderManager.cancelOrder();
                     System.out.println("Order canceled!");
-                default:
-                    System.out.println("invalid input!");
-
+                    choice = false;
+                }
+                default -> System.out.println("invalid input!");
             }
         }
-
 
     }
 
     private void checkOutScreen(Order order) {
+        System.out.println("==========");
         System.out.println(order.getOrderDetails());
-        welcomeScreen();
+
+        return;
     }
 
 
@@ -148,18 +146,20 @@ public class UserInterface {
         System.out.println("    DRINK OPTION    ");
         System.out.println("==============");
 
-        String drinkName = InputCollector.promptForString("What drink flavor would you like?");
         System.out.println("Drink flavors: freddy’s fruity fizz, chica’s clucking cola, foxy’s pirate pineapple, bonnie’s blueberry blast");
+        String drinkName = InputCollector.promptForString("What drink flavor would you like?");
 
-        String drinkSize = InputCollector.promptForString("What drink size would you like");
         System.out.println("Size options: small, medium, large");
+        String drinkSize = InputCollector.promptForString("What drink size would you like");
+
 
         Drink drink = new Drink("", drinkName, drinkSize);
 
         order.addProduct(drink);
 
-
-    } //todo display options 1st then ask what they want
+//maybe return drink
+    }
+    //todo display options 1st then ask what they want
 
     private void addPizza(Order order) {
 

@@ -67,7 +67,7 @@ public class Drink extends Product {
 //        this.price = price;
 //    }
 
-@Override
+
 public double getPrice() {
     switch(size){
         case "small":
@@ -83,8 +83,14 @@ public double getPrice() {
             this.price = 2.00;
             break;
 
+    }return price;
+
+
+
     }
-    return price;
+    @Override
+    public String toString(){
+        return String.format("Drink - %s: | $%.2f", size, getPrice());
 }
 //method to set price by size of drink
 

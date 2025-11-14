@@ -18,6 +18,6 @@ public abstract class Product {
 
     @Override
     public String toString() {
-        return String.format("%s | $%.2f", description);
+        return String.format("%s | $%.2f"+ description, getPrice());
     }
 }

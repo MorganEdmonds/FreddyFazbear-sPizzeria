@@ -45,16 +45,16 @@ cd FreddyFazbear-sPizzeria
 Compile and run: 
 
 
-Something I struggled with alot this capstone was time management, my user interface and my receipt writer. 
+- Something I struggled with alot this capstone was time management, my user interface and my receipt writer. 
 I was able to succeed through my hard work and my refusal to give up on myself and my capstone, but also through the shared efforts of my peers that helped movtivate me and helped me with any issues I was facing.
 
-something I enjoyed doing with this program was making my menu's and seeing my code propperly run and siaply as a working program.
+- something I enjoyed doing with this program was making my menu's and seeing my code propperly run and fuction as a working program.
 
-Something that suprised me with this capstone was just how difficult it truly ended up being, it tested not only my ablitlity to code, but also my grit and my willingness to complete the year up program as a whole. 
+- Something that suprised me with this capstone was just how difficult it truly ended up being, it tested not only my ablitlity to code, but also my grit and my willingness to complete the year up program as a whole. 
 
-I questioned myself worth, my knowledge, my spirit, and how badly I want this; and I am proud to say that I didn't crumble under the pressure of deadlines, anxiey, and dread. 
+- I questioned myself worth, my knowledge, my spirit, and how badly I want this; and I am proud to say that I didn't crumble under the pressure of deadlines, anxiey, and dread. 
 
-This capstone may have nbeen a different beast, but I am the one who has conquered it.
+- This capstone may have nbeen a different beast, but I am the one who has conquered it.
 
 <img width="1904" height="1080" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/6845692c-434f-4e44-8f8d-8aba96319493" />
 

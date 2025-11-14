@@ -1,0 +1,16 @@
+Freddy Fazbear's Pizzeria
+ Date and Time :2025-11-13 23:28
+----------------
+Pizza - Size: 12 |  Crust: Thin | Toppings: [pepperoni, bacon, mozzarella, Parmesan, Parmesan, Buffalo, onions, tomatoes, marinara] | 20.1
+ Price: $ 20.10
+
+----------------
+6 pack Garlic Knot | $1.50
+ Price: $ 1.50
+
+----------------
+Drink - large: | $3.00
+ Price: $ 3.00
+
+----------------
+Total: $24.60

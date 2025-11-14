@@ -44,6 +44,7 @@ public class UserInterface {
     }
 
     public void orderScreenWithInput() {
+        //need to be able to explain order manager and it's purpose
         OrderManager orderManager = new OrderManager();
         orderManager.startNewOrder();
         Order order = orderManager.getCurrentOrder();

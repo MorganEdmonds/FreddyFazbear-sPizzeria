@@ -4,6 +4,7 @@ import com.pluralsight.data.OrderManager;
 import com.pluralsight.data.ReceiptWriter;
 import com.pluralsight.model.*;
 
+import javax.sound.midi.Soundbank;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,8 +91,24 @@ public class UserInterface {
     }
 
     private void checkOutScreen(Order order) {
-        System.out.println("==========");
-        System.out.println(order.getOrderDetails());
+        ReceiptWriter receiptWriter = new ReceiptWriter();
+
+        if (order.isValidOrder()){
+            System.out.println(order.getOrderDetails());
+        }else{
+            System.out.println("please add items to order");
+        }
+        String yesOrNo = InputCollector.promptForString(" is order correct? y/n");
+        if (yesOrNo.equalsIgnoreCase("y")){
+           receiptWriter.saveReceipt(order);
+            System.out.println("printing receipt");
+        } else if (yesOrNo.equalsIgnoreCase("n")) {
+            System.out.println("order canceled");
+
+        }else{
+            System.out.println("invalid entry");
+        }
+
 
         return;
     }
@@ -133,12 +150,16 @@ public class UserInterface {
 
         String answer = InputCollector.promptForString("would you like Garlic Knots?(Y/N)");
 
-        boolean garlicKnot = answer.equalsIgnoreCase("Y");
+        if (answer.equalsIgnoreCase("y")){
 
-        Garlicknot garlicknot = new Garlicknot("6 pack", "GarlicKnots");
+            Garlicknot garlicknot1 = new Garlicknot();
+            order.addProduct(garlicknot1);
+            System.out.println("Added GarlicKnots successfully " + garlicknot1 );
+        } else {
+            System.out.println("no Garlic knot added");
+        }
 
-        order.addProduct(garlicknot);
-    }//todo tell user if it added properly
+    }
 
     private void addDrinkScreen(Order order) {
 

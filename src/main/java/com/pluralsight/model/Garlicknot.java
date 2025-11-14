@@ -2,16 +2,18 @@ package com.pluralsight.model;
 
 public class Garlicknot extends Product {
 
-     private String name;
 
-    public Garlicknot(String description, String name) {
-        super(description);
-        this.name = name;
+
+    public Garlicknot() {
+        super("6 pack Garlic Knot");
+
     }
 
     @Override
     public double getPrice() {
        // return price();
+
         return 1.50;
     }
+
 }

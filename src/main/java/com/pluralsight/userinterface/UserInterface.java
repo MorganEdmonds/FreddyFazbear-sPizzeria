@@ -161,6 +161,7 @@ public class UserInterface {
     } //todo display options 1st then ask what they want
 
     private void addPizza(Order order) {
+
         //1 Display Heading that says Pizza Builder
         System.out.println("==============");
         System.out.println("    PIZZA BUILDER    ");
@@ -190,7 +191,18 @@ public class UserInterface {
             case 4 -> "Cauliflower";
             default -> "Error";
         };
-        System.out.println();
+        System.out.println("Selected option is  "+ crustChosen);
+
+
+
+
+
+
+
+
+
+
+
 
 
         //3 ask user what pizza size they want
@@ -214,22 +226,27 @@ public class UserInterface {
             case 3 -> "16";
             default -> "Error";
         };
+        System.out.println("You have chosen " + pizzaSizeChosen);
+
+
+
+
+
 
         //8 ask user if they would like stuffed crust
         String answer = InputCollector.promptForString("would you like stuffed crust?(Y/N)");
-
         boolean isStuffedCrust = answer.equalsIgnoreCase("Y");
-
         Pizza pizza = new Pizza(pizzaSizeChosen, crustChosen, isStuffedCrust);
 
-        //4 ask user what meat toppings they want
 
+
+
+        //4 ask user what meat toppings they want
         boolean addingMoreMeat = true;
         List<Integer> meatList = Arrays.asList(1, 2, 3, 4, 5, 6);
 
         while (addingMoreMeat) {
             System.out.println("Meat Options:\n1) pepperoni\n2) sausage\n3) ham\n4) bacon\n5) chicken\n6) meatball");
-
 
             int customerMeatChoice;
 
@@ -242,6 +259,7 @@ public class UserInterface {
                     System.out.println("Invalid meat type. Please choose from the meat options listed.");
                 }
             }
+
             String meatToppingChosen = switch (customerMeatChoice) {
                 case 1 -> "pepperoni";
                 case 2 -> "sausage";
@@ -251,17 +269,27 @@ public class UserInterface {
                 case 6 -> "meatball";
                 default -> "Error";
             };
+//            boolean extra = InputCollector.promptForYesNo("Extra meat?");
             pizza.addTopping(new Topping(meatToppingChosen));
+            System.out.println("You have chosen " + meatToppingChosen);
+
+            boolean answer1 = InputCollector.promptForYesNo("Would you like more meat?");
+
+            if(answer1 == false){
+                addingMoreMeat = false;
+            }
+
+
+        }
+
+
 
             //5 ask user what cheese topping they want
-        }
             boolean addingMoreCheese = true;
-
             List<Integer> cheeseList = Arrays.asList(1, 2, 3, 4, 5);
 
             while (addingMoreCheese) {
                 System.out.println("Cheese Options:\n1) mozzarella\n2) Parmesan\n3) Ricotta\n4) Goat\n5) Buffalo\n");
-
                 int customerCheeseChoice;
 
                 while (true) {

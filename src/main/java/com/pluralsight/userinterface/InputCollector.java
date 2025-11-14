@@ -8,37 +8,37 @@ public class InputCollector {
     //This is what will collect all our input
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static String promptForString(String prompt){
+    public static String promptForString(String prompt) {
         System.out.print(prompt + ": ");
         String input = scanner.nextLine().trim();
         System.out.println();
         return input;
     }
 
-    public static char promptForChar(String prompt){
+    public static char promptForChar(String prompt) {
         System.out.print(prompt + ": ");
         char result = scanner.next().toUpperCase().charAt(0);
         scanner.nextLine();
         return result;
     }
 
-    public static float promptForFloat(String prompt){
+    public static float promptForFloat(String prompt) {
 
         boolean isFloat = false;
         float result = 0;
 
-        do{
-            try{
+        do {
+            try {
                 System.out.print(prompt + ": ");
                 result = scanner.nextFloat();
                 scanner.nextLine();
                 isFloat = true;
 
-            }catch(Exception e){
+            } catch (Exception e) {
                 scanner.nextLine();
                 System.out.println("please enter a number with decimal");
             }
-        }while (!isFloat);
+        } while (!isFloat);
 
         return result;
 
@@ -48,14 +48,13 @@ public class InputCollector {
 
         boolean Num = false;
         int result = 0;
-        do{
-            try{
+        do {
+            try {
                 System.out.print(prompt + ": ");
                 result = scanner.nextInt();
                 scanner.nextLine();
                 Num = true;
-            }
-            catch(Exception ex){
+            } catch (Exception ex) {
                 scanner.nextLine();
                 System.out.println("Invalid Entry, please enter a whole number");
             }
@@ -64,21 +63,20 @@ public class InputCollector {
         return result;
     }
 
-    public static long promptForLong(String prompt){
+    public static long promptForLong(String prompt) {
         System.out.print(prompt + ": ");
         long result = scanner.nextLong();
         scanner.nextLine();
         return result;
     }
 
-    public static LocalDate promptForDate(String prompt){
-        while(true){
-            try{
+    public static LocalDate promptForDate(String prompt) {
+        while (true) {
+            try {
                 System.out.print(prompt + ": ");
                 String stringDate = scanner.nextLine();
                 return LocalDate.parse(stringDate);
-            }
-            catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Invalid entry! Please enter date (YYYY-MM-DD)");
             }
 
@@ -86,25 +84,41 @@ public class InputCollector {
 
     }
 
-    public static double promptForDouble(String prompt){
+    public static double promptForDouble(String prompt) {
 
         boolean isDouble = false;
         double result = 0;
 
-        do{
-            try{
+        do {
+            try {
                 System.out.print(prompt + ": ");
                 result = scanner.nextDouble();
                 scanner.nextLine();
                 isDouble = true;
 
-            }catch(Exception e){
+            } catch (Exception e) {
                 scanner.nextLine();
                 System.out.print("please enter a number with decimal ");
             }
-        }while (!isDouble);
+        } while (!isDouble);
 
         return result;
+
+
+    }
+
+    public static boolean promptForYesNo(String prompt) {
+        while (true) {
+            String input = promptForString(prompt + " (Y/N)").toLowerCase().trim();
+            if (input.equals("y") || input.equals("yes")) {
+                return true;
+            } else if (input.equals("n") || input.equals("no")) {
+                return false;
+            } else {
+                System.out.println("Invalid input. Please enter Y or N.");
+            }
+        }
+
 
     }
 }

@@ -45,8 +45,40 @@ cd FreddyFazbear-sPizzeria
 Compile and run: 
 
 
-<img width="1920" height="1200" alt="Screenshot (45)" src="https://github.com/user-attachments/assets/e5285e4d-9cbe-4f7f-a93c-8e31ebc5a58d" />
+Something I struggled with alot this capstone was time management, my user interface and my receipt writer. 
+I was able to succeed through my hard work and my refusal to give up on myself and my capstone, but also through the shared efforts of my peers that helped movtivate me and helped me with any issues I was facing.
 
+something I enjoyed doing with this program was making my menu's and seeing my code propperly run and siaply as a working program.
+
+Something that suprised me with this capstone was just how difficult it truly ended up being, it tested not only my ablitlity to code, but also my grit and my willingness to complete the year up program as a whole. 
+
+I questioned myself worth, my knowledge, my spirit, and how badly I want this; and I am proud to say that I didn't crumble under the pressure of deadlines, anxiey, and dread. 
+
+This capstone may have nbeen a different beast, but I am the one who has conquered it.
+
+<img width="1904" height="1080" alt="Screenshot (46)" src="https://github.com/user-attachments/assets/6845692c-434f-4e44-8f8d-8aba96319493" />
+
+
+
+<img width="1920" height="1200" alt="Screenshot (47)" src="https://github.com/user-attachments/assets/6363070d-2ea4-4653-8cc1-293af6576f22" />
+
+
+
+<img width="1920" height="1200" alt="Screenshot (48)" src="https://github.com/user-attachments/assets/d0d542e0-3313-4daf-98db-28fc823ffb72" />
+
+
+<img width="1920" height="1200" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/1977b7b2-be84-4fec-aabc-062bb0091eb0" />
+
+
+<img width="1920" height="1200" alt="Screenshot (50)" src="https://github.com/user-attachments/assets/dbd3249c-93c5-4d09-a328-a63897f294f2" />
+
+
+<img width="1920" height="1200" alt="Screenshot (51)" src="https://github.com/user-attachments/assets/38d1648a-8aad-444a-8a8a-90453f896e22" />
+
+<img width="1920" height="1200" alt="Screenshot (52)" src="https://github.com/user-attachments/assets/6cf13ecb-9bb7-4ca0-a650-a7bcdf8f97d9" />
+
+
+<img width="1920" height="1200" alt="Screenshot (53)" src="https://github.com/user-attachments/assets/87757a54-afc4-46ca-92fc-13a2732b1479" />
 
 
 ````bash 

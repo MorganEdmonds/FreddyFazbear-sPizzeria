@@ -95,6 +95,7 @@ public class UserInterface {
 
     private void checkOutScreen(Order order) {
         System.out.println(order.getOrderDetails());
+        welcomeScreen();
     }
 
 
@@ -420,6 +421,7 @@ public class UserInterface {
 //                    pizza.setToppings(toppings);
 
                     order.addProduct(pizza);
+        System.out.println("Pizza added " + pizza.toString());
 
 
                     //9 making pizza based on user input

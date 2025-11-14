@@ -97,4 +97,9 @@ public class Topping {
         return price;
 
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

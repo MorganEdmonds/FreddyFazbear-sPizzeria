@@ -84,5 +84,12 @@ public class Pizza extends Product {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Pizza - Size: " +
+                size + " |  Crust: " +
+                crust +
+                " | Toppings: " + toppings.toString() +
+                " | " + getPrice();
+    }
 }

@@ -37,7 +37,6 @@ public class Order {
 
 
 
-
     public String getOrderDetails(){
         StringBuilder builder = new StringBuilder();
         builder.append("Freddy Fazbear's Pizzeria");
@@ -52,7 +51,7 @@ public class Order {
         builder.append("\n");
 
         for(Product p : products){
-            builder.append(p.getDescription()+"\n");
+            builder.append(p.toString()+"\n");
             builder.append(" Price: $ " + String.format("%.2f", p.getPrice()) + "\n");
 
             builder.append("\n");

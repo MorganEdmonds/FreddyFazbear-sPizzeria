@@ -45,7 +45,7 @@ cd FreddyFazbear-sPizzeria
 Compile and run:
 
 
-- Something I struggled with alot this capstone was time management, my user interface and my receipt writer. 
+- Something I struggled with alot this capstone was time management, my user interface, streams and my receipt writer. 
 I was able to succeed through my hard work and my refusal to give up on myself and my capstone, but also through the shared efforts of my peers that helped movtivate me and helped me with any issues I was facing.
 
 - something I enjoyed doing with this program was making my menu's and seeing my code properly run and fuction as a working program.

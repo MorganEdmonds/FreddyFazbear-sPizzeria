@@ -42,7 +42,7 @@ Navigate to project directory:
  
 cd FreddyFazbear-sPizzeria  
 
-Compile and run: 
+Compile and run:
 
 
 - Something I struggled with alot this capstone was time management, my user interface and my receipt writer. 

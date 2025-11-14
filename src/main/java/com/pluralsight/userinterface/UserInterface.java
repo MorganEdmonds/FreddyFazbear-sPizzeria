@@ -160,7 +160,7 @@ public class UserInterface {
 
     } //todo display options 1st then ask what they want
 
-    private Pizza addPizza(Order order) {
+    private void addPizza(Order order) {
         //1 Display Heading that says Pizza Builder
         System.out.println("==============");
         System.out.println("    PIZZA BUILDER    ");
@@ -179,16 +179,18 @@ public class UserInterface {
             if (crustList.contains(customerCrustChoice)) {
                 break;
             } else {
-                System.out.println("Invalid bread type. Please choose from the crust options listed.");
+                System.out.println("Invalid crust type. Please choose from the crust options listed.");
             }
         }
+
         String crustChosen = switch (customerCrustChoice) {
-            case 1 -> "Thin";
+            case 1 -> "Thin" ;
             case 2 -> "Regular";
             case 3 -> "Thick";
             case 4 -> "Cauliflower";
             default -> "Error";
         };
+        System.out.println();
 
 
         //3 ask user what pizza size they want
@@ -218,15 +220,15 @@ public class UserInterface {
 
         boolean isStuffedCrust = answer.equalsIgnoreCase("Y");
 
-        Pizza pizza = new Pizza( pizzaSizeChosen, crustChosen, isStuffedCrust);
+        Pizza pizza = new Pizza(pizzaSizeChosen, crustChosen, isStuffedCrust);
+
         //4 ask user what meat toppings they want
 
-        List<String> meatToppings = new ArrayList<>();
         boolean addingMoreMeat = true;
+        List<Integer> meatList = Arrays.asList(1, 2, 3, 4, 5, 6);
 
         while (addingMoreMeat) {
-            List<Integer> meatList = Arrays.asList(1, 2, 3, 4, 5, 6);
-            System.out.println("Meat Options:\n1) Pepperoni\n2) Sausage\n3) Ham\n4) Bacon\n5) Chicken\n6) Meatball");
+            System.out.println("Meat Options:\n1) pepperoni\n2) sausage\n3) ham\n4) bacon\n5) chicken\n6) meatball");
 
 
             int customerMeatChoice;
@@ -237,11 +239,11 @@ public class UserInterface {
                 if (meatList.contains(customerMeatChoice)) {
                     break;
                 } else {
-                    System.out.println("Invalid meat type. Please choose from the crust options listed.");
+                    System.out.println("Invalid meat type. Please choose from the meat options listed.");
                 }
             }
             String meatToppingChosen = switch (customerMeatChoice) {
-                case 1 -> "Pepperoni";
+                case 1 -> "pepperoni";
                 case 2 -> "sausage";
                 case 3 -> "ham";
                 case 4 -> "bacon";
@@ -249,128 +251,137 @@ public class UserInterface {
                 case 6 -> "meatball";
                 default -> "Error";
             };
-
+            pizza.addTopping(new Topping(meatToppingChosen));
 
             //5 ask user what cheese topping they want
-
-            List<String> cheeseToppings = new ArrayList<>();
+        }
             boolean addingMoreCheese = true;
 
+            List<Integer> cheeseList = Arrays.asList(1, 2, 3, 4, 5);
 
             while (addingMoreCheese) {
-                List<Integer> cheeseList = Arrays.asList(1, 2, 3, 4, 5, 6);
-                System.out.println("Meat Options:\n1) Pepperoni\n2) Sausage\n3) Ham\n4) Bacon\n5) Chicken\n6) Meatball");
+                System.out.println("Cheese Options:\n1) mozzarella\n2) Parmesan\n3) Ricotta\n4) Goat\n5) Buffalo\n");
 
-            int customerCheeseChoice;
+                int customerCheeseChoice;
 
-            while (true) {
-                customerCheeseChoice = InputCollector.promptForInt("What cheese topping would you like?");
+                while (true) {
+                    customerCheeseChoice = InputCollector.promptForInt("What cheese topping would you like?");
 
-                if (crustList.contains(customerCheeseChoice)) {
-                    break;
-                } else {
-                    System.out.println("Invalid cheese type. Please choose from the crust options listed.");
+                    if (cheeseList.contains(customerCheeseChoice)) {
+                        break;
+                    } else {
+                        System.out.println("Invalid cheese type. Please choose from the crust options listed.");
+                    }
                 }
+                String cheeseToppingChosen = switch (customerCheeseChoice) {
+                    case 1 -> "mozzarella";
+                    case 2 -> "Parmesan";
+                    case 3 -> "Ricotta";
+                    case 4 -> "Goat";
+                    case 5 -> "Buffalo";
+                    default -> "Error";
+                };
+                pizza.addTopping(new Topping(cheeseToppingChosen));
+
             }
-            String cheeseToppingChosen = switch (customerCheeseChoice) {
-                case 1 -> "mozzarella";
-                case 2 -> "Parmesan";
-                case 3 -> "Ricotta";
-                case 4 -> "Goat";
-                case 5 -> "Buffalo";
-                default -> "Error";
-            };
+
+                boolean addingMoreRegularTopping = true;
+                List<Integer> regularToppingList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+                while (addingMoreRegularTopping) {
+
+                    System.out.println("Regular Topping Options:\n1) onions\n2) mushrooms\n3) bell peppers\n4) olives\n5) tomatoes\n6) spinach\n7) basil\n8) pineapple\n9) anchovies");
+
+                    int customerRegularToppingChoice;
+
+                    while (true) {
+                        customerRegularToppingChoice = InputCollector.promptForInt("What regular topping would you like?");
+
+                        if (regularToppingList.contains(customerRegularToppingChoice)) {
+                            break;
+                        } else {
+                            System.out.println("Invalid regular topping type. Please choose from the topping options listed.");
+                        }
+                    }
+                    String regularToppingChosen = switch (customerRegularToppingChoice) {
+                        case 1 -> "onions";
+                        case 2 -> "mushrooms";
+                        case 3 -> "bell peppers";
+                        case 4 -> "olives";
+                        case 5 -> "tomatoes";
+                        case 6 -> "spinach";
+                        case 7 -> "basil";
+                        case 8 -> "pineapple";
+                        case 9 -> "anchovies";
+                        default -> "Error";
+                    };
+                    pizza.addTopping(new Topping(regularToppingChosen));
+                }
+                    //7 ask user what select sauces they want
+
+
+                    List<Integer> sauceList = Arrays.asList(1, 2, 3, 4, 5, 6);
+                    System.out.println("sauce Options:\n1) marinara\n2) alfredo\n3) pesto\n4) bbq\n5) buffalo\n6) olive oil");
+
+                    int customerSauceChoice;
+
+                    while (true) {
+                        customerSauceChoice = InputCollector.promptForInt("What sauce would you like?");
+
+                        if (sauceList.contains(customerSauceChoice)) {
+                            break;
+                        } else {
+                            System.out.println("Invalid sauce type. Please choose from the crust options listed.");
+                        }
+                    }
+                    String sauceToppingChosen = switch (customerSauceChoice) {
+                        case 1 -> "marinara";
+                        case 2 -> "alfredo";
+                        case 3 -> "pesto";
+                        case 4 -> "bbq";
+                        case 5 -> "buffalo";
+                        case 6 -> "olive oil";
+                        default -> "Error";
+                    };
+                    pizza.addTopping(new Topping(sauceToppingChosen));
+
+                    // create an array list to hold all toppings
+//                    List<Topping> toppings = new ArrayList<>();
+
+                    // add all toppings the user has selected
+
+//                    if (meatToppingChosen != null){
+//                        Topping t = new Topping(meatToppingChosen);
+//                        toppings.add(t);
+//                    }
 //
-
-
-            //6 ask user what other toppings they want
-
-
-            //6 ask user what regular topping the want.
-
-            List<Integer> regularToppingList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
-            System.out.println("cheese Options:\n1) onions\n2) mushrooms\n3) bell peppers\n4) olives\n5) tomatoes\n6) spinach\n7) basil\n8 pineapple\n9 anchovies");
-
-            int customerRegularToppingChoice;
-
-            while (true) {
-                customerRegularToppingChoice = InputCollector.promptForInt("What regular topping would you like?");
-
-                if (crustList.contains(customerRegularToppingChoice)) {
-                    break;
-                } else {
-                    System.out.println("Invalid regular topping type. Please choose from the crust options listed.");
-                }
-            }
-            String regularToppingChosen = switch (customerRegularToppingChoice) {
-                case 1 -> "onions";
-                case 2 -> "mushrooms";
-                case 3 -> "bell peppers";
-                case 4 -> "olives";
-                case 5 -> "tomatoes";
-                case 6 -> "spinach";
-                case 7 -> "basil";
-                case 8 -> "pineapple";
-                case 9 -> "anchovies";
-                default -> "Error";
-            };
-
-
+//                    if (cheeseToppingChosen != null){
+//                        Topping t = new Topping(cheeseToppingChosen);
+//                        toppings.add(t);
+//                    }
 //
+//                    if (regularToppingChosen != null){
+//                        Topping t = new Topping(regularToppingChosen);
+//                        toppings.add(t);
+//                    }
+//
+////                    if (regularToppingChosen != null){
+////                        Topping t = new Topping(regularToppingChosen);
+////                        toppings.add(t);
+////                    }
+//
+//                    if (sauceToppingChosen != null){
+//                        Topping t = new Topping(sauceToppingChosen);
+//                        toppings.add(t);
+//                    }
 
 
-            //7 ask user what select sauces they want
-            //7 ask user what sauce they want
+//                    pizza.setToppings(toppings);
 
-            List<Integer> sauceList = Arrays.asList(1, 2, 3, 4, 5, 6);
-            System.out.println("sauce Options:\n1) marinara\n2) alfredo\n3) pesto\n4) bbq\n5) buffalo\n6) olive oil");
+                    order.addProduct(pizza);
 
-            int customerSauceChoice;
 
-            while (true) {
-                customerSauceChoice = InputCollector.promptForInt("What cheese topping would you like?");
+                    //9 making pizza based on user input
 
-                if (crustList.contains(customerSauceChoice)) {
-                    break;
-                } else {
-                    System.out.println("Invalid sauce type. Please choose from the crust options listed.");
-                }
+
+                } //todo handle invalid inputs
             }
-            String sauceToppingChosen = switch (customerSauceChoice) {
-                case 1 -> "marinara";
-                case 2 -> "alfredo";
-                case 3 -> "pesto";
-                case 4 -> "bbq";
-                case 5 -> "buffalo";
-                case 6 -> "olive oil";
-                default -> "Error";
-            };
-
-
-            // create an array list to hold all toppings
-
-            List<String> toppings = new ArrayList<>();
-
-            // add all toppings the user has selected
-
-            toppings.add(meatToppingChosen);
-            toppings.add(cheeseToppingChosen);
-            toppings.add(regularToppingChosen);
-            toppings.add(sauceToppingChosen);
-
-
-
-
-            pizza.setToppings(toppings);
-
-            order.addProduct(pizza);
-
-
-            //9 making pizza based on user input
-
-
-        } //todo handle invalid inputs
-    order.addProduct(pizza);
-    return pizza;
-    }
-}

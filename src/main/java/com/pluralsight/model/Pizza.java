@@ -6,7 +6,7 @@ import java.util.List;
 public class Pizza extends Product {
         private String size;
         private String crust;
-        private ArrayList<Topping> toppings;
+        private List<Topping> toppings;
         private boolean isStuffed;
 
     public Pizza( String size, String crust, boolean isStuffed) {
@@ -38,11 +38,11 @@ public class Pizza extends Product {
         this.crust = crust;
     }
 
-    public ArrayList<Topping> getToppings() {
+    public List<Topping> getToppings() {
         return toppings;
     }
 
-    public void setToppings(List<String> toppings) {
+    public void setToppings(List<Topping> toppings) {
 
         this.toppings = toppings;
     }

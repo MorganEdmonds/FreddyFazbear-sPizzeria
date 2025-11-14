@@ -6,10 +6,14 @@ public class Topping {
     private String category;
     private boolean isExtra;
 
-    public Topping(String name, String category, boolean isExtra) {
+    public Topping(String name) {
         this.name = name;
-        this.category = category;
-        this.isExtra = isExtra;
+        this.category = switch(this.name) {
+            case "pepperoni", "sausage", "ham", "bacon", "chicken", "meatball" -> "meat";
+            case "mozzarella", "parmesan", "ricotta", "goat cheese", "buffalo" -> "cheese";
+            default -> "regular";
+        };
+        this.isExtra = !isExtra;
     }
 
 

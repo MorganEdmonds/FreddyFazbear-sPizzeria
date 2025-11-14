@@ -278,8 +278,6 @@ public class UserInterface {
             if(answer1 == false){
                 addingMoreMeat = false;
             }
-
-
         }
 
 
@@ -310,6 +308,13 @@ public class UserInterface {
                     default -> "Error";
                 };
                 pizza.addTopping(new Topping(cheeseToppingChosen));
+                System.out.println("You have chosen " + cheeseToppingChosen);
+
+                boolean answer1 = InputCollector.promptForYesNo("Would you like more cheese?");
+
+                if(answer1 == false){
+                    addingMoreCheese = false;
+                }
 
             }
 
@@ -343,6 +348,13 @@ public class UserInterface {
                         default -> "Error";
                     };
                     pizza.addTopping(new Topping(regularToppingChosen));
+                    System.out.println("You have chosen " + regularToppingChosen);
+
+                    boolean answer1 = InputCollector.promptForYesNo("Would you like more toppings?");
+
+                    if(answer1 == false){
+                        addingMoreRegularTopping = false;
+                    }
                 }
                     //7 ask user what select sauces they want
 
@@ -371,6 +383,8 @@ public class UserInterface {
                         default -> "Error";
                     };
                     pizza.addTopping(new Topping(sauceToppingChosen));
+                    System.out.println("You have chosen " + sauceToppingChosen);
+
 
                     // create an array list to hold all toppings
 //                    List<Topping> toppings = new ArrayList<>();
